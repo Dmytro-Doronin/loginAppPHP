@@ -1,3 +1,5 @@
+<?php include "db.php"?>
+
 <?php
     
     if(isset($_POST['submit'])) {
@@ -5,16 +7,13 @@
         $name = $_POST['name'];
         $password = $_POST['password'];
             
-        $connection = mysqli_connect('localhost', 'root', '', 'loginapp');
-
-        if ($connection) {
-            echo "Connect";
-        } else {
-            die('Not connect');
-        }
-
+        // CREATE
         $query = "INSERT INTO users(username,password) ";
         $query .= "VALUES ('$name', '$password')";
+
+        // READ 
+        // $query = "SELECT * FROM users";
+
 
         $result = mysqli_query($connection, $query);
 
